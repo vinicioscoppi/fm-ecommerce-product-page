@@ -1,36 +1,55 @@
 <template>
   <div id="app">
-  <header>
-    <navbar-header></navbar-header>
-  </header>
+    <header>
+      <navbar-header />
+    </header>
     <main>
-      <product-showcase></product-showcase>
-      <product-info></product-info>
+      <product-pictures />
+      <div class="flex-group flex-group-column">
+        <product-info />
+        <action-buttons />
+      </div>
     </main>
-
-    Sneaker Company Fall Limited Edition Sneakers These low-profile sneakers are
-    your perfect casual wear companion. Featuring a durable rubber outer sole,
-    they’ll withstand everything the weather can offer. $125.00 50% $250.00 0
-    Add to cart
   </div>
 </template>
 
 <script>
 import NavbarHeader from "./components/NavbarHeader.vue";
+import ProductPictures from "./components/ProductPictures.vue";
+import ProductInfo from "./components/ProductInfo.vue";
+import ActionButtons from "./components/ActionButtons.vue"
 
 export default {
   name: "App",
   components: {
     NavbarHeader,
+    ProductPictures,
+    ProductInfo,
+    ActionButtons
   },
 };
 </script>
 
 <style>
 #app {
-  font-size: 16px;
-  font-family: "Kumbh Sans", sans-serif;
   padding: 0 10rem;
-  min-height: 100vh;
+}
+
+main {
+  padding: 3rem 1rem;
+  display: grid;
+  grid-template-columns: 4rem 31rem 9rem 31rem;
+}
+
+
+.flex-group {
+  display: flex;
+}
+
+.flex-group-column {
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: center;
+  grid-column-start: 4;
 }
 </style>
