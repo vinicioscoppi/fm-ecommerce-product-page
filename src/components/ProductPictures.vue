@@ -5,7 +5,7 @@
     <span v-for="thumbnail in thumbnails"
         :key="thumbnail.id"
         :class=" `${
-          selectedThumbnail === thumbnail.id ? 'selected' : ''
+          selectedThumbnail === thumbnail.id ? 'selected' : 'not-selected'
         }`">
       <img
         :src="thumbnail.src"
@@ -65,6 +65,11 @@ export default {
   border-radius: 1rem;
   min-height: auto;
   max-width: var(--thumbnail-width);
+}
+
+.not-selected:hover {
+  opacity: .5;
+  cursor: pointer;
 }
 
 .selected {

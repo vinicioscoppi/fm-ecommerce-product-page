@@ -12,7 +12,7 @@
           id="a"
         />
       </defs>
-      <use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#a" />
+      <use fill-rule="nonzero" xlink:href="#a" />
     </svg>
     0
     <svg
@@ -27,7 +27,7 @@
           id="b"
         />
       </defs>
-      <use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#b" />
+      <use fill-rule="nonzero" xlink:href="#b" />
     </svg>
   </div>
 </template>
@@ -54,9 +54,11 @@ export default {
 
 svg {
   padding: 1rem;
+  fill:var(--color-orange);
 }
 
 svg:hover {
   cursor: pointer;
+  fill:var(--color-orange-hover);
 }
 </style>

@@ -32,6 +32,12 @@ export default {
   font-weight: 700;
 }
 
+.buy-button:hover {
+  cursor: pointer;
+  background-color: var(--color-orange-hover);
+  box-shadow: 0 2rem 2rem 0rem var(--color-pale-orange);
+}
+
 svg {
   fill: var(--color-white);
 }

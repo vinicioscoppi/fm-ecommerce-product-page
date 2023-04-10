@@ -24,7 +24,7 @@
           fill-rule="nonzero"
         />
       </svg>
-      <img :src="avatarSrc" alt="Your avatar" />
+      <img :src="avatarSrc" alt="Your avatar"/>
     </div>
   </div>
 </template>
@@ -34,9 +34,9 @@ export default {
   name: "NavbarHeader",
   data() {
     return {
-      avatarSrc: './images/image-avatar.png'
-    }
-  }
+      avatarSrc: "./images/image-avatar.png",
+    };
+  },
 };
 </script>
 
@@ -50,8 +50,7 @@ img {
   grid-row-end: 2;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 2rem 0;
-  border-bottom: 1px solid hsla(var(--color-dark-grayish-blue-hsl), .2);
+  border-bottom: 1px solid hsla(var(--color-dark-grayish-blue-hsl), 0.2);
 }
 
 .flex-group {
@@ -62,9 +61,36 @@ img {
   gap: 4rem;
 }
 
+.navigation li {
+  --border-size: 5px;
+  display: flex;
+  align-items: center;
+  height: calc(7rem - var(--border-size));
+  margin-block: var(--border-size);
+}
+
+.navigation li:hover {
+  color: var(--color-black);
+  cursor: pointer;
+  border-bottom: var(--border-size) solid var(--color-orange);
+  margin-bottom: 0;
+}
+
 .personal-info {
   justify-content: flex-end;
   gap: 3rem;
+}
+
+.personal-info img:hover {
+  --border-size: 2px;
+  cursor: pointer;
+  border: var(--border-size) solid var(--color-orange);
+  border-radius: 50%;
+  margin: calc(var(--border-size) * -1);
+}
+
+.personal-info svg{
+  cursor: pointer;
 }
 
 ul {
