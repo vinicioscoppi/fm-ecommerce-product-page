@@ -31,7 +31,6 @@ export default {
 </script>
 
 <style scoped>
-
 .product-price {
   display: flex;
   flex-direction: column;
@@ -39,6 +38,7 @@ export default {
 }
 
 .flex-group {
+  display: flex;
   gap: 1.2rem;
   align-items: center;
 }

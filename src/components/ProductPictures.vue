@@ -2,17 +2,10 @@
   <div class="product-pictures">
     <img class="selected-image" :src="selectedImage" alt="product-image" />
     <div class="thumbnails">
-    <span v-for="thumbnail in thumbnails"
-        :key="thumbnail.id"
-        :class=" `${
-          selectedThumbnail === thumbnail.id ? 'selected' : 'not-selected'
-        }`">
-      <img
-        :src="thumbnail.src"
-        class="thumbnail"
-        alt="product-thumbnail"
-      />
-      </span>
+      <button v-for="thumbnail in thumbnails" :key="thumbnail.id" :class="`thumbnail-button ${selectedThumbnail === thumbnail.id ? 'selected' : 'not-selected'
+        }`" @click="handleThumbnailClick(thumbnail.id)">
+        <img :src="thumbnail.src" class="thumbnail" alt="product-thumbnail" />
+      </button>
     </div>
   </div>
 </template>
@@ -36,6 +29,12 @@ export default {
       return `./images/image-product-${this.selectedThumbnail}.jpg`;
     },
   },
+  methods: {
+    handleThumbnailClick(thumbnailId) {
+      this.selectedThumbnail = thumbnailId;
+      document.querySelector('dialog').showModal();
+    }
+  }
 };
 </script>
 
@@ -61,8 +60,19 @@ export default {
 
 .thumbnail {
   border-radius: 1rem;
-  min-height: auto;
-  max-width: var(--thumbnail-width);
+  margin: 0;
+  border: 0;
+  width: 100%;
+  height: auto;
+}
+
+.thumbnail-button {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 1rem;
+  width: var(--thumbnail-width);
+  height: var(--thumbnail-width);
 }
 
 .not-selected:hover {
@@ -79,7 +89,7 @@ export default {
   max-height: var(--max-size);
 }
 
-.selected img{
+.selected img {
   opacity: .3;
 }
 </style>

@@ -3,6 +3,7 @@
     <header>
       <navbar-header />
     </header>
+    <product-pictures-dialog />
     <main>
       <product-pictures />
       <div class="flex-group">
@@ -18,6 +19,7 @@ import NavbarHeader from "./components/NavbarHeader.vue";
 import ProductPictures from "./components/ProductPictures.vue";
 import ProductInfo from "./components/ProductInfo.vue";
 import ActionButtons from "./components/ActionButtons.vue"
+import ProductPicturesDialog from "./components/ProductPicturesDialog.vue"
 
 export default {
   name: "App",
@@ -25,7 +27,8 @@ export default {
     NavbarHeader,
     ProductPictures,
     ProductInfo,
-    ActionButtons
+    ActionButtons,
+    ProductPicturesDialog
   },
 };
 </script>
@@ -33,6 +36,12 @@ export default {
 <style scoped>
 header {
   padding-inline: 10rem;
+}
+
+@media(min-width: 720px) {
+  header {
+    padding-inline: 4rem;
+  }
 }
 
 main {
