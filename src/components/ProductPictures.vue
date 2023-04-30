@@ -46,8 +46,6 @@ export default {
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  width: 31rem;
-  grid-column-start: 2;
 }
 
 .selected-image {
@@ -75,7 +73,7 @@ export default {
 .selected {
   --border-size: 2px;
   --max-size: calc(var(--thumbnail-width) - var(--border-size));
-  border-radius: 1rem;
+  border-radius: calc(1rem + var(--border-size));
   border: var(--border-size) solid var(--color-orange);
   max-width: var(--max-size);
   max-height: var(--max-size);

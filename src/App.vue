@@ -5,7 +5,7 @@
     </header>
     <main>
       <product-pictures />
-      <div class="flex-group flex-group-column">
+      <div class="flex-group">
         <product-info />
         <action-buttons />
       </div>
@@ -30,26 +30,23 @@ export default {
 };
 </script>
 
-<style>
-#app {
-  padding: 0 10rem;
+<style scoped>
+header {
+  padding-inline: 10rem;
 }
 
 main {
-  padding: 3rem 1rem;
+  margin-block: 3rem;
   display: grid;
-  grid-template-columns: 4rem 31rem 9rem 31rem;
+  grid-template-columns: 31rem 31rem;
+  gap: 9rem;
+  justify-content: center;
 }
-
 
 .flex-group {
   display: flex;
-}
-
-.flex-group-column {
   flex-direction: column;
   gap: 3rem;
   justify-content: center;
-  grid-column-start: 4;
 }
 </style>

@@ -46,14 +46,9 @@ img {
 }
 
 .navbar-header {
-  grid-row-start: 1;
-  grid-row-end: 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid hsla(var(--color-dark-grayish-blue-hsl), 0.2);
-}
-
-.flex-group {
   align-items: center;
 }
 
