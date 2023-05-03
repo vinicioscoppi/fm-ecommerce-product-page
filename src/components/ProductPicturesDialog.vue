@@ -7,7 +7,7 @@
                     fill-rule="evenodd" />
             </svg>
         </button>
-        <product-pictures class="dialog-content" />
+        <product-pictures class="dialog-content" modal />
     </dialog>
 </template>
 
@@ -30,12 +30,14 @@ export default {
     overflow: visible;
     border: 0;
     background-color: transparent;
-    left: 25%;
-    right: 25%;
-    top: 25%;
     margin: auto;
     text-align: right;
-    position: absolute;
+}
+
+@media(min-width: 720px) {
+    .product-pictures-dialog {
+        width: 24rem;
+    }
 }
 
 .product-pictures-dialog::backdrop {

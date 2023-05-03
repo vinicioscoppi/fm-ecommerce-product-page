@@ -1,7 +1,7 @@
 <template>
-  <div class="product-pictures">
+  <div class="product-pictures" v-bind="$attrs">
     <img class="selected-image" :src="selectedImage" alt="product-image" />
-    <div class="thumbnails">
+    <div class="thumbnails" v-bind="$attrs">
       <button v-for="thumbnail in thumbnails" :key="thumbnail.id" :class="`thumbnail-button ${selectedThumbnail === thumbnail.id ? 'selected' : 'not-selected'
         }`" @click="handleThumbnailClick(thumbnail.id)">
         <img :src="thumbnail.src" class="thumbnail" alt="product-thumbnail" />
@@ -13,6 +13,7 @@
 <script>
 export default {
   name: "ProductPictures",
+  inheritAttrs: false,
   data() {
     return {
       selectedThumbnail: 1,
@@ -53,9 +54,22 @@ export default {
 }
 
 .thumbnails {
+  --container-width: 31rem;
+  --thumbnails-gap: 2rem;
+  --thumbnail-width: calc((var(--container-width) - (var(--thumbnails-gap) * 3)) / 4);
   display: flex;
-  gap: 2rem;
-  --thumbnail-width: calc((31rem - (2rem * 3)) / 4);
+  gap: var(--thumbnails-gap);
+}
+
+@media(min-width: 720px) {
+  .product-pictures[modal] {
+    gap: 1rem;
+  }
+
+  .thumbnails[modal] {
+    --thumbnails-gap: 1rem;
+    --container-width: 24rem;
+  }
 }
 
 .thumbnail {
