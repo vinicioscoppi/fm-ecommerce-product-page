@@ -1,6 +1,6 @@
 <template>
   <div class="product-pictures" v-bind="$attrs">
-    <img class="selected-image" :src="selectedImage" alt="product-image" />
+    <img @click="handlePictureClick(selectedThumbnail)" class="selected-image" :src="selectedImage" alt="product-image" />
     <div class="thumbnails" v-bind="$attrs">
       <button v-for="thumbnail in thumbnails" :key="thumbnail.id" :class="`thumbnail-button ${selectedThumbnail === thumbnail.id ? 'selected' : 'not-selected'
         }`" @click="handleThumbnailClick(thumbnail.id)">
@@ -14,6 +14,12 @@
 export default {
   name: "ProductPictures",
   inheritAttrs: false,
+  props: {
+    selectedPicture: { 
+      type: Number,
+      required: false
+    }
+  },
   data() {
     return {
       selectedThumbnail: 1,
@@ -27,13 +33,15 @@ export default {
   },
   computed: {
     selectedImage() {
-      return `./images/image-product-${this.selectedThumbnail}.jpg`;
+      return `./images/image-product-${this.selectedPicture || this.selectedThumbnail}.jpg`;
     },
   },
   methods: {
     handleThumbnailClick(thumbnailId) {
       this.selectedThumbnail = thumbnailId;
-      document.querySelector('dialog').showModal();
+    },
+    handlePictureClick(pictureId) {
+      this.$emit('picture-clicked', pictureId);
     }
   }
 };

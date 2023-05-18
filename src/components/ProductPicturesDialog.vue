@@ -7,7 +7,7 @@
                     fill-rule="evenodd" />
             </svg>
         </button>
-        <product-pictures class="dialog-content" modal />
+        <product-pictures class="dialog-content" modal :selected-picture="selectedPicture"/>
     </dialog>
 </template>
 
@@ -15,11 +15,18 @@
 import ProductPictures from './ProductPictures.vue'
 
 export default {
+    name: 'ProductPicturesDialog',
     components: { ProductPictures },
+    props: {
+        selectedPicture: {
+            type: Number,
+            required: false
+        }
+    },
     methods: {
         handleCloseClick() {
             document.querySelector('dialog').close();
-        }
+        },
     }
 }
 </script>

@@ -3,9 +3,9 @@
     <header>
       <navbar-header />
     </header>
-    <product-pictures-dialog />
+    <product-pictures-dialog :selected-picture="clickedPictureId" />
     <main>
-      <product-pictures />
+      <product-pictures @picture-clicked="handlePictureClick" />
       <div class="flex-group">
         <product-info />
         <action-buttons />
@@ -30,6 +30,30 @@ export default {
     ActionButtons,
     ProductPicturesDialog
   },
+  props: { 
+    selectedPicture: {
+      type: Number,
+      required: false
+    }
+  },
+  watch: {
+    clickedPictureId(newValue) {
+      this.clickedPictureId = newValue;
+      if(this.clickedPictureId) {
+        document.querySelector('dialog').showModal();
+      }
+    }
+  },
+  data() {
+    return {
+      clickedPictureId: this.selectedPicture
+    }
+  },
+  methods: {
+    handlePictureClick(pictureId) {
+      this.clickedPictureId = pictureId;
+    }
+  }
 };
 </script>
 
